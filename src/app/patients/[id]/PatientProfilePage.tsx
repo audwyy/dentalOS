@@ -40,6 +40,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import InvoicesTab from "@/components/InvoicesTab";
 import ChartTab from "@/components/ChartTab";
+import MediaTab from "@/components/MediaTab";
 
 interface Allergy {
   id: string;
@@ -787,7 +788,8 @@ export default function PatientProfilePage({ patient, appointments }: Props) {
           {activeTab === "chart" && (
             <ChartTab patientId={patient.id} treatmentItems={[]} />
           )}
-          {["media", "pricing"].includes(activeTab) && (
+          {activeTab === "media" && <MediaTab patientId={patient.id} />}
+          {["pricing"].includes(activeTab) && (
             <div className="flex items-center justify-center h-full text-gray-400">
               <div className="text-center">
                 {(() => {
