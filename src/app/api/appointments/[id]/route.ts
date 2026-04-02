@@ -34,6 +34,6 @@ export async function DELETE(
   const { id } = await context.params;
 
   await sql`DELETE FROM appointments WHERE id = ${id}`;
-
+  console.log("hello");
   return new Response('ok');
 }
